@@ -3,6 +3,8 @@ const cors = require('cors');
 
 const app = express();
 
+const clientPort = process.env.CLIENT_PORT || 3000
+
 app.use(express.json());
 if (process.env.NODE_ENV === 'development') {
     app.use(cors({
@@ -11,9 +13,14 @@ if (process.env.NODE_ENV === 'development') {
 }
 else {
     app.use(cors({
-        origin: ['http://localhost:5500', 'http://127.0.0.1:5500']
+        origin: [`http://localhost:${clientPort}`, `http://127.0.0.1:${clientPort}`]
     }));
 }
 
+app.get('/', (req, res) => {
+    res.json({
+        message: 'Hello World'
+    });
+});
 
 module.exports = app;
