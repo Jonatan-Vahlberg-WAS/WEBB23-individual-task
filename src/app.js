@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const connectToDB = require('./config/database');
 
 const app = express();
 
@@ -22,5 +23,7 @@ app.get('/', (req, res) => {
         message: 'Hello World'
     });
 });
+
+connectToDB();
 
 module.exports = app;
