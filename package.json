@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon -r dotenv/config server.js",
+    "start": "node src/server.js",
+    "dev": "nodemon -r dotenv/config src/server.js",
     "build": "webpack --mode production",
     "test:watch": "jest --watch --detectOpenHandles",
     "test": "jest --detectOpenHandles"
